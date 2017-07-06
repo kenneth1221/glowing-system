@@ -1,0 +1,47 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="interface.css">
+</head>
+<body>
+	
+	<span>Godly Power:<span id = 'godpower'>0</span></span>
+	<br/>
+	<span>Attending Spirits:<span id = 'spirits'>0</span></span>
+	<br/>
+	<button onClick='godClick(1)'>Worship Thyself!</button>
+	<br/>
+	<table>
+		<tr>
+			<th>Creation</th>
+			<th>Number</th>
+			<th>Cost</th>
+		</tr>
+		<tr>
+			<td><button onClick='makeSong()'>Song of Creation</button></td>
+			<td><span id='songs'>0</span></td>
+			<td><span id='songCost'>10</span></td>
+		</tr>
+		<tr>
+			<td>
+		</tr>
+	</table>
+	<br/>
+	<table align='right' text-align='center'>
+		<tr>
+		</tr>
+	</table>
+	
+	
+	<span>Status:</span>
+	<br/>
+	<span id='status'>You are a monad, floating alone in an endless void of YOU...</span>
+	<br/>
+	<br/>
+	<button onClick='save()'>Save</button>
+	<button onClick='load()'>Load</button>
+	<button onClick = 'localStorage.removeItem("save")'>Clear Save</button>
+
+	<script type = "text/javascript" src = "main.js"></script>
+</body>
+
+</html>

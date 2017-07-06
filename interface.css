@@ -1,0 +1,25 @@
+body{
+	font-family: sans-serif;
+	background-color: black;
+	color:lightyellow;
+	text-align:center;
+}
+button{
+	width: 10em;
+	background-color:white;
+	font-size:1em;
+	padding: 0.1em;
+	font-family: "Times New Roman";
+	border: 2px solid black; 
+	padding: 0.1em;
+	margin-right: 0.1em;
+	margin: auto;
+	text-align: center;
+}
+table, th, td{
+	border: 1px solid white;
+	border-collapse:collapse;
+}
+#duality{
+		display:none
+}
