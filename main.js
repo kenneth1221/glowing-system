@@ -20,6 +20,11 @@ function load(){
 	if(typeof savegame.spirits !== "undefined") spirits = savegame.spirits;
 }
 
+function debugAddSpirits(){
+	spirits = spirits+10;
+	document.getElementById('spirits').innerHTML = spirits;
+}
+
 function prettify(input){
 	var output = Math.round(input*1000000)/1000000;
 	return output;

@@ -20,6 +20,16 @@ table, th, td{
 	border: 1px solid white;
 	border-collapse:collapse;
 }
+
+.upgrade{
+	background-color:white;
+	width: 15em;
+	float:right;
+	color: black;
+	margin-right: 1em;
+	text-align: center;
+}
+
 #duality{
-		display:none
+	display:none
 }
