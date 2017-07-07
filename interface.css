@@ -1,35 +1,65 @@
 body{
 	font-family: sans-serif;
-	background-color: black;
-	color:lightyellow;
+	background-color: gray;
+	color:gold;
 	text-align:center;
 }
 button{
-	width: 10em;
+	width: 15em;
 	background-color:white;
 	font-size:1em;
 	padding: 0.1em;
 	font-family: "Times New Roman";
-	border: 2px solid black; 
-	padding: 0.1em;
 	margin-right: 0.1em;
 	margin: auto;
 	text-align: center;
 }
 table, th, td{
-	border: 1px solid white;
+	border: 0.1em solid black;
 	border-collapse:collapse;
 }
 
 .upgrade{
-	background-color:white;
 	width: 15em;
 	float:right;
-	color: black;
-	margin-right: 1em;
-	text-align: center;
 }
 
-#duality{
-	display:none
+.godtype{
+	display:none;
+}
+
+/* Tooltip container */
+.tooltip {
+    position: relative;
+    display: block;
+    /*border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 20em;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 1px 0;
+    border-radius: 6px;
+ 
+    /* Position the tooltip text - see examples below! */
+	position: absolute;
+	right: 105%;
+}
+.tooltip .tooltiptext .tooltopleft{
+	position: absolute;
+	right: 105%;
+}
+.tooltip .tooltiptext .tooltiptop{
+	width: 120px;
+    bottom: 100%;
+    left: 50%; 
+    margin-left: -60px;
+}
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
 }

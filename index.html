@@ -1,18 +1,30 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="interface.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
+
 <body>
 	
-	<span>Godly Power:<span id = 'godpower'>0</span></span>
+	<span>Godly Power: <span id = 'godpower'>0</span></span>
 	<br/>
-	<span>Attending Spirits:<span id = 'spirits'>0</span></span>
+	<span class = 'tooltip'><span id='spiritName'>Attending Spirits</span>:
+		<span class = 'tooltiptext'>
+		Produces Godly Power for you!
+		</span>
+		<span id = 'spirits' >
+			0
+		</span>
+	</span>
 	<br/>
+	<span>Godtype: <span id = 'godtype'>single</span></span>
+	<br/>	
 	<button onClick = 'debugAddSpirits()'>Debug: Add Spirits</button>
 	<br/>
-	<button onClick='godClick(1)'>Worship Thyself!</button>
+	<button id = 'click' onClick='manualClick(1)'><span id = 'worshipName'>Worship Thyself!</span></button>
 	<br/>
-	<table>
+	<!-- Creations you can make with Godpower-->
+	<table> 
 		<tr>
 			<th>Creation</th>
 			<th>Number</th>
@@ -24,16 +36,34 @@
 			<td><span id='songCost'>10</span></td>
 		</tr>
 		<tr>
-			<td>
+			<td><button onClick='makeStar()'>Star in the Heavens</button></td>
+			<td><span id='stars'>0</span></td>
+			<td><span id='starCost'>100</span></td>
 		</tr>
 	</table>
 	<br/>
-	<span class = 'upgrade' id='duality'> test </span>
-	<br/>
+	<!--Upgrades: godhood types-->
+	<table cellpadding='0' cellspacing = '0' style = "float:right;"> 
+		<tr class = 'tooltip'>
+			<td>
+				<button class = 'upgrade godtype' id='duality' onmousedown='changeGodType("duality")'> Duality </button>
+			</td>
+			<td >
+			<span class = 'tooltiptext tooltipleft'>This voice is not an individual; it's your other half. One becomes two, yet is still one.<br/><i>Power bonuses squared. Self-worship generates sub-dualities.</i></span>
+			</td>
+		</tr>
+		<tr class = 'tooltip'><td><button class = 'upgrade godtype' id='trinity' onmousedown='changeGodType("trinity")'> Trinity </button></td></tr>
+		<tr class = 'tooltip'><td><button class = 'upgrade godtype' id='pantheon' onmousedown='changeGodType("pantheon")'> Pantheon </button></td></tr>
+		<tr><td><button class = 'upgrade godtype' id='single' onmousedown='changeGodType("single")'> Deicide!!!/Unity</button></td></tr>
+		<tr><td><button class = 'upgrade godtype' id='henotheon' onmousedown='changeGodType("henotheon")'> Henotheism </button></td></tr>
+	</table>
 	
+	<br/>
 	<span>Status:</span>
 	<br/>
 	<span id='status'>You are a monad, floating alone in an endless void of YOU...</span>
+	<br/>
+	<br/>
 	<br/>
 	<br/>
 	<button onClick='save()'>Save</button>
