@@ -3,12 +3,36 @@ var godPower = 1;
 var clickVal = 1;
 var spiritCount = 0;
 var god = {};
-var spirits = {};
+var spirits = new Phaser.Group(game);
 var powerText;
 god['first'] = {};
-var style = {font: 'bold 4em Times New Roman', fill: '#fff', boundsAlignH: 'center', boundsAlignV:'middle'};
+var style = {font: 'bold 3em Times New Roman', fill: '#fff', boundsAlignH: 'center', boundsAlignV:'middle'};
+
 function preload(){
 	
+	var bmd = game.add.bitmapData(250, 500);
+	bmd.ctx.fillStyle = 'grey';
+	bmd.ctx.strokeStyle = 'white';
+	bmd.ctx.lineWidth = 12;
+	bmd.ctx.fillRect(0, 0, 250, 500);
+	bmd.ctx.strokeRect(0, 0, 250, 500);
+	game.cache.addBitmapData('upgradePanel', bmd);
+	
+	var buttonImage = game.add.bitmapData(250, 500);
+	//buttonImage.ctx.fillStyle = 'white';
+	buttonImage.ctx.strokeStyle = 'red';
+	buttonImage.ctx.lineWidth = 4;
+	//buttonImage.ctx.fillRect(0, 0, 232, 48);
+	buttonImage.ctx.strokeRect(0, 12, 232, 48);
+	game.cache.addBitmapData('button', buttonImage);
+	
+	upgradePanel = game.add.image(0, 70, this.game.cache.getBitmapData('upgradePanel'));
+	var upgradeButtons = upgradePanel.addChild(this.game.add.group());
+	upgradeButtons.position.setTo(8, 8);
+	
+	game.load.image('musicnote', 'assets/musicnote.png');
+	
+
 }
 
 function create(){
@@ -23,6 +47,15 @@ function create(){
 	bg.inputEnabled = true;
 	bg.input.prirityID = 0;
 	bg.events.onInputDown.add(click)
+	
+	var buttonstyle = {font: '1.5em Times New Roman', fill: '#fff', boundsAlignH: 'center', boundsAlignV:'middle'};
+	var button;
+	button = game.add.button(10, 70, game.cache.getBitmapData('button'));
+	button.icon = button.addChild(game.add.image(4, 20, 'musicnote'));
+	button.text = button.addChild(game.add.text(42, 15, 'Bonus: ' , buttonstyle));
+	button.details = {cost: 5};
+	button.costText = button.addChild(game.add.text(42, 35, 'Cost: ', buttonstyle));
+	button.events.onInputDown.add(onUpgradeButtonClick, this); 
 }
 
 function update(){
@@ -40,6 +73,14 @@ function click(){
 }
 function godClick(n){
 	godPower += n;
+}
+
+
+function onUpgradeButtonClick(button, pointer) {
+    if (godPower - button.details.cost >= 0) {
+        godPower -= button.details.cost;
+        powerText.text = 'Godly Power: ' + godPower;
+    }
 }
 
 function scaleGodPower(gp){
