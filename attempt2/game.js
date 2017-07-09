@@ -19,11 +19,11 @@ function preload(){
 	game.cache.addBitmapData('upgradePanel', bmd);
 	
 	var buttonImage = game.add.bitmapData(250, 500);
-	//buttonImage.ctx.fillStyle = 'white';
+	buttonImage.ctx.fillStyle = 'white';
 	buttonImage.ctx.strokeStyle = 'red';
 	buttonImage.ctx.lineWidth = 4;
-	//buttonImage.ctx.fillRect(0, 0, 232, 48);
-	buttonImage.ctx.strokeRect(0, 12, 232, 48);
+	buttonImage.ctx.fillRect(0, 12, '10em', 48);
+	buttonImage.ctx.strokeRect(0, 12, '10em', 48);
 	game.cache.addBitmapData('button', buttonImage);
 	
 	upgradePanel = game.add.image(0, 70, this.game.cache.getBitmapData('upgradePanel'));
@@ -45,7 +45,7 @@ function create(){
     bg.fixedToCamera = true;
     bg.scale.setTo(game.width, game.height);
 	bg.inputEnabled = true;
-	bg.input.prirityID = 0;
+	bg.input.priorityID = 0;
 	bg.events.onInputDown.add(click)
 	
 	var buttonstyle = {font: '1.5em Times New Roman', fill: '#fff', boundsAlignH: 'center', boundsAlignV:'middle'};
@@ -86,3 +86,4 @@ function onUpgradeButtonClick(button, pointer) {
 function scaleGodPower(gp){
 	return Math.pow(gp, 1/2)*5
 }
+
