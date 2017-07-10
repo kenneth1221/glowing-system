@@ -59,7 +59,9 @@ function makeSong(){
 	document.getElementById('songCost').innerHTML = nextCost;
 	
 };
-
+function documentGetElementById(id, n){
+	document.getElementByID(id).innerHTML = n;
+}
 function makeStar(){
 	var starCost = Math.floor(100*Math.pow(1.1, songs));
 	if(godpower >= starCost){
